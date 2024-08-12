@@ -8,8 +8,8 @@ from . import models
 
 
 def index(req):
-    return HttpResponse("Hello world")
-
+    #return HttpResponse("Hello world")
+    return render(req,"main/index.html",)
 
 def registrar_usuario(req):
     if req.method == "POST":

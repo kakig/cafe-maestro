@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home-section">Home</a></li>
+                <li><a href="#">Quem Somos</a></li>
+                <li><a href="#">Equipe</a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="home-section">
+            <div class="home-content">
+
+                
+                <div class="home-title">
+                    <h1>Café Maestro</h1>
+                    <div class="buttons">
+                        <a>
+                            <button class="btn-login">Login</button>
+                        </a>
+                        <a href="registrar_usuario">
+                            <button class="btn-register">Registro</button>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="home-image">
+                    <!-- Insira a imagem aqui -->
+                    <img src="{% static 'images/coffeeHome.png' %}" alt="Café Maestro">
+                </div>
+
+
+            </div>
+           
+        </div>
+        </section>
+        
+</body>
+</html>
