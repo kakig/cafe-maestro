@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+  Login | Café Maestro
+{% endblock %}
+
+{% block content %}
+  <h1>Login no Sistema</h1>
+  <form action="login" method="GET">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <button type="submit">Entrar</button>
+  </form>
+{% endblock %}
