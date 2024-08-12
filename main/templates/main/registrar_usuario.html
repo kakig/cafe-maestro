@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+  Registrar usuário | Café Maestro
+{% endblock %}
+
+{% block content %}
+  <h1>Registrar usuário</h1>
+  <form action="registrar_usuario" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Registrar</button>
+  </form>
+{% endblock %}
