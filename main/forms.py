@@ -9,4 +9,4 @@ class RegistrarUsuarioForm(forms.Form):
 
 class LoginForm(forms.Form):
     email = forms.EmailField()
-    senha = forms.CharField(max_length=20)
+    senha = forms.CharField(max_length=20, widget=forms.PasswordInput)

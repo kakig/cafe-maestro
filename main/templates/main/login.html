@@ -12,4 +12,7 @@
     <br>
     <button type="submit">Entrar</button>
   </form>
+  {% if password_error %}
+    <h3>Credenciais inválidas</h3>
+  {% endif %}
 {% endblock %}

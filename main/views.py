@@ -28,6 +28,7 @@ def registrar_usuario(req):
 
 
 def login(req):
+    password_error = False
     if req.method == "POST":
         form = LoginForm(req.POST)
         if form.is_valid():
@@ -36,6 +37,11 @@ def login(req):
             ).first()
             if user and user.senha == form.cleaned_data["senha"]:
                 return redirect("index")  # ir para o painel do usuário
+            else:
+                form = LoginForm()
+                password_error = True
     else:
         form = LoginForm()
-    return render(req, "main/login.html", {"form": form})
+    return render(
+        req, "main/login.html", {"form": form, "password_error": password_error}
+    )
