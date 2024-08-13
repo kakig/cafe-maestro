@@ -6,6 +6,7 @@ class RegistrarUsuarioForm(forms.Form):
     email = forms.EmailField()
     cpf = forms.CharField(max_length=11)
 
-class loginForm(forms.Form):
+
+class LoginForm(forms.Form):
     email = forms.EmailField()
     senha = forms.CharField(max_length=20)

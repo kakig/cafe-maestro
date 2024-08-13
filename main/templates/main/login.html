@@ -6,7 +6,7 @@
 
 {% block content %}
   <h1>Login no Sistema</h1>
-  <form action="login" method="GET">
+  <form action="login" method="POST">
     {% csrf_token %}
     {{ form }}
     <br>
