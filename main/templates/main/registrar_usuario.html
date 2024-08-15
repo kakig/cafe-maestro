@@ -10,8 +10,11 @@
     <h2>Registrar usuário</h2>
     <form action="registrar_usuario" method="POST">
       {% csrf_token %}
-      {{ form }}  
-      <button type="submit" class="submit-btn" >Registrar</button>
+      {{ form }}
+      <br>
+      <div class="btn">
+        <button type="submit" class="submit-btn" >Registrar </button>
+      </div>
     </form>
   </div>
 {% endblock %}

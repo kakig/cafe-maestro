@@ -6,7 +6,7 @@ class RegistrarUsuarioForm(forms.Form):
         max_length=80
     )
     email = forms.EmailField(
-        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Seu melhor email'})
+        widget=forms.EmailInput(attrs={'class': 'input-field', 'placeholder': 'Seu melhor email'})
     )
     cpf = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Seu cpf'}),
@@ -15,7 +15,7 @@ class RegistrarUsuarioForm(forms.Form):
 
 class LoginForm(forms.Form):
     email = forms.EmailField(
-        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Seu email'})
+        widget=forms.EmailInput(attrs={'class': 'input-field', 'placeholder': 'Seu email'})
     )
     senha = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'input-field', 'placeholder': 'Sua senha'}),
