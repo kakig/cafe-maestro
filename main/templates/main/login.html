@@ -1,18 +1,21 @@
 {% extends "main/base.html" %}
+{% load static %}
 
 {% block title %}
   Login | Café Maestro
 {% endblock %}
 
 {% block content %}
-  <h1>Login no Sistema</h1>
-  <form action="login" method="POST">
+<div class="login">
+  <h2>Login no Sistema</h2>
+  <form action="login" method="POST" >
     {% csrf_token %}
     {{ form }}
     <br>
-    <button type="submit">Entrar</button>
+    <button type="submit" class="submit-btn">Entrar</button>
   </form>
   {% if password_error %}
     <h3>Credenciais inválidas</h3>
+</div>
   {% endif %}
 {% endblock %}
