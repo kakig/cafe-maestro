@@ -143,26 +143,38 @@ h3{
     cursor: pointer;
     
 }
+
+label {
+    color: #FFE5CC; /* só consegui retirar os campos email e senha assim!! */
+    margin-bottom: 5px;
+    display: block;  /* Isso garante que o label fique acima do input */
+    text-align: center;
+}
+
+
 .input-field{
-    width: 40%;
+    width: 230px;
+    height: 50px;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1.5px solid #000000;
     border-radius: 4px;
 }
 
 .submit-btn{
     background-color: #8D4E04;
     height: 3em;
-    width: 5em;
+    width: 230px;
     color: white;
     padding: 3px;
     border: none;
     border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
+    box-shadow: #000000;
 }
-.login, .registro-usuario{
+
+
+.registro-usuario{
     margin-top: 10%;
     margin-left: 10%;
 }
@@ -182,4 +194,52 @@ form{
 .image-placeholder img {
     max-width: 100%;
     height: auto;
+}
+
+
+
+.login-section{
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo principal da área no eixo X */
+    
+    
+    width: 100%;
+    height: 100%;
+}
+.login-area {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo principal da área no eixo X */
+    border: 2px solid #8D4E04;
+    border-radius: 10px;
+    background-color: #FFE5CC;
+    width: 50%;
+    height: 700px;
+}
+
+.login-itens-area {
+    display: flex;
+    flex-direction: column; /* Garante que os itens estejam um embaixo do outro */
+    align-items: center; /* Centraliza os itens no eixo X */
+   
+    height: auto;
+    width: 50%;
+    padding: 20px; /* Adiciona espaçamento interno se necessário */
+}
+
+.login-image-area {
+   
+    margin-top: 10%;
+    width: 50%;
+    height: 30%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.login-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ajusta a imagem para caber dentro do bloco */
 }

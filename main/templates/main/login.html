@@ -6,18 +6,31 @@
 {% endblock %}
 
 {% block content %}
-<div class="login">
-  <h2>Login no Sistema</h2>
-  <form action="login" method="POST" class="form">
-    {% csrf_token %}
-    {{ form }}
-    <br>
-    <div class="btn">
-      <button class="submit-btn" type="submit" >Entrar</button>
+
+
+
+<section class="login-section">
+  <div class="login-area">
+
+    <div class="login-itens-area">
+      <div class="login-image-area">
+        <img src="{% static 'images/farmer384.png' %}" alt="farmer384"  >
+      </div>
+      <!-- <h2>Login no Sistema</h2> -->
+      <form action="login" method="POST" class="form">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <div class="btn">
+          <button class="submit-btn" type="submit" >Login</button>
+        </div>
+      </form>
+      {% if password_error %}
+        <h3>Credenciais inválidas</h3>
     </div>
-  </form>
-  {% if password_error %}
-    <h3>Credenciais inválidas</h3>
-</div>
-  {% endif %}
-{% endblock %}
+      {% endif %}
+    {% endblock %}
+    
+    </div>
+    
+</section>
