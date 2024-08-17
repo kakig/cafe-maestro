@@ -198,7 +198,7 @@ form{
 
 
 
-.login-section{
+.login-section, .register-section{
     display: flex;
     justify-content: center; /* Centraliza o conteúdo principal da área no eixo X */
     
@@ -206,7 +206,7 @@ form{
     width: 100%;
     height: 100%;
 }
-.login-area {
+.login-area, .register-area {
     position: relative;
     display: flex;
     justify-content: center; /* Centraliza o conteúdo principal da área no eixo X */
@@ -217,7 +217,7 @@ form{
     height: 700px;
 }
 
-.login-itens-area {
+.login-itens-area, .register-itens-area {
     display: flex;
     flex-direction: column; /* Garante que os itens estejam um embaixo do outro */
     align-items: center; /* Centraliza os itens no eixo X */
@@ -227,7 +227,7 @@ form{
     padding: 20px; /* Adiciona espaçamento interno se necessário */
 }
 
-.login-image-area {
+.login-image-area, .register-image-area {
    
     margin-top: 10%;
     width: 50%;
@@ -238,7 +238,13 @@ form{
     align-items: center; /* Centraliza verticalmente */
 }
 
-.login-image {
+
+.register-image-area{
+  
+    margin-bottom: -10px;
+}
+
+.login-image, .register-image {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; /* Ajusta a imagem para caber dentro do bloco */

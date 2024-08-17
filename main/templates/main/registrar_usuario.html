@@ -6,15 +6,28 @@
 {% endblock %}
 
 {% block content %}
-  <div class="registro-usuario">
-    <h2>Registrar usuário</h2>
-    <form action="registrar_usuario" method="POST">
-      {% csrf_token %}
-      {{ form }}
-      <br>
-      <div class="btn">
-        <button type="submit" class="submit-btn" >Registrar </button>
+<section class="register-section">
+  <div class="register-area">
+
+    <div class="register-itens-area">
+      <div class="register-image-area">
+        <img src="{% static 'images/farmer2.png' %}" alt="farmer2"  >
       </div>
-    </form>
-  </div>
-{% endblock %}
+      <!-- <h2>Login no Sistema</h2> -->
+      <form action="registrar_usuario" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <div class="btn">
+          <button type="submit" class="submit-btn" >Registrar </button>
+        </div>
+      </form>
+      {% if password_error %}
+        <h3>Credenciais inválidas</h3>
+    </div>
+      {% endif %}
+    {% endblock %}
+    
+    </div>
+    
+</section>
