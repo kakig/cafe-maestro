@@ -12,6 +12,10 @@ class RegistrarUsuarioForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Seu cpf'}),
         max_length=11
     )
+    senha = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Insira uma boa senha'}),
+        max_length=11
+    )
 
 class LoginForm(forms.Form):
     email = forms.EmailField(
