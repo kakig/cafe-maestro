@@ -21,3 +21,16 @@ class LoginForm(forms.Form):
         widget=forms.PasswordInput(attrs={'class': 'input-field', 'placeholder': 'Sua senha'}),
         max_length=20
     )
+
+class RegistrarInsumoForm(forms.Form):
+    nome = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Insira o nome da Insumo'}),
+        max_length=100
+        )
+    descricao = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Descrição do insumo'})
+    )
+    unidade_medida = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Unidade de medida[L/Kg]'}),
+        max_length=50
+    )

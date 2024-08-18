@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .forms import RegistrarUsuarioForm
+from .forms import RegistrarUsuarioForm, RegistrarInsumoForm
 from .forms import LoginForm
 from . import models
 from .models import Plantacao, Insumo, ControleInsumo, ProducaoEsperada, ProducaoRealizada, Clima, Trabalhador, ControleTrabalho, Venda
@@ -51,6 +51,18 @@ def login(req):
     insumos = models.Insumo.objects.all()[:10]
     return render(req, "main/dashboard.html", {"insumos": insumos})
  """
+
+def registrar_insumo(req):
+    if req.method == "POST":
+        form = RegistrarInsumoForm(req.POST)
+        if form.is_valid():
+            user = models.Insumo(**form.cleaned_data)
+            user.save()
+        return redirect("dashboard")
+    else:
+        form = RegistrarInsumoForm()
+    return render(req, "main/registrar_insumo.html", {"form": form})
+
 
 def dashboard(request):
     # Consultando os dados de cada tabela

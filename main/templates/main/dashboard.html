@@ -18,6 +18,19 @@
             padding-top: 20px;
         }
 
+.submit-btn{
+    background-color: #8D4E04;
+    height: 3em;
+    width: 230px;
+    color: white;
+    padding: 3px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: #000000;
+}
+
         .sidebar a {
             display: block;
             color: white;
@@ -41,6 +54,17 @@
 
         .section.active {
             display: block;
+        }
+
+        .buttons {
+           
+            display: flex;
+            gap: 20px;
+            color: white;
+            width: 100%;
+            height: 50%;
+            justify-content: center;     
+
         }
 
     </style>
@@ -104,6 +128,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <button class="submit-btn"><a href="{% url 'registrar_insumo' %}" style="color: white; text-decoration: none">Registrar insumo</a></button>
         </div>
 
         <div id="controle-insumos-section" class="section">
