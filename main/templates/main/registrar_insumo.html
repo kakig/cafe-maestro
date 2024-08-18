@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}
+  Registrar Insumo | Café Maestro
+{% endblock %}
+
+{% block content %}
+<section class="register-section">
+  <div class="register-area">
+
+    <div class="register-itens-area">
+      <div class="register-image-area">
+        <img src="{% static 'images/farmer2.png' %}" alt="farmer2"  >
+      </div>
+      <form action="registrar_insumo" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <br>  
+        <div class="btn">
+          <button type="submit" class="submit-btn" >Registrar </button>
+        </div>
+      </form>
+
+    {% endblock %}
+    
+    </div>
+    
+</section>
