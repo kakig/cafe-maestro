@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .forms import RegistrarUsuarioForm
 from .forms import LoginForm
 from . import models
-
+from .models import Plantacao, Insumo, ControleInsumo, ProducaoEsperada, ProducaoRealizada, Clima, Trabalhador, ControleTrabalho, Venda
 # Create your views here.
 
 
@@ -47,6 +47,33 @@ def login(req):
     )
 
 
-def dashboard(req):
+""" def dashboard(req):
     insumos = models.Insumo.objects.all()[:10]
     return render(req, "main/dashboard.html", {"insumos": insumos})
+ """
+
+def dashboard(request):
+    # Consultando os dados de cada tabela
+    plantacoes = Plantacao.objects.all()
+    insumos = Insumo.objects.all()
+    controles_insumos = ControleInsumo.objects.all()
+    producoes_esperadas = ProducaoEsperada.objects.all()
+    producoes_realizadas = ProducaoRealizada.objects.all()
+    climas = Clima.objects.all()
+    trabalhadores = Trabalhador.objects.all()
+    controles_trabalhos = ControleTrabalho.objects.all()
+    vendas = Venda.objects.all()
+
+    # Passando os dados para o template
+    context = {
+        'plantacoes': plantacoes,
+        'insumos': insumos,
+        'controles_insumos': controles_insumos,
+        'producoes_esperadas': producoes_esperadas,
+        'producoes_realizadas': producoes_realizadas,
+        'climas': climas,
+        'trabalhadores': trabalhadores,
+        'controles_trabalhos': controles_trabalhos,
+        'vendas': vendas,
+    }
+    return render(request, 'main/dashboard.html', context)
