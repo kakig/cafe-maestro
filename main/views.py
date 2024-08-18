@@ -45,3 +45,8 @@ def login(req):
     return render(
         req, "main/login.html", {"form": form, "password_error": password_error}
     )
+
+
+def dashboard(req):
+    insumos = models.Insumo.objects.all()[:10]
+    return render(req, "main/dashboard.html", {"insumos": insumos})

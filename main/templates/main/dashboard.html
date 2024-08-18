@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+  Dashboard | Café Maestro
+{% endblock %}
+
+{% block content %}
+  <h1>Dashboard</h1>
+  {% for insumo in insumos %}
+    <p>{{ insumo.nome }}</p>
+  {% endfor %}
+{% endblock %}
