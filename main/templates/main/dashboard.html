@@ -6,7 +6,13 @@
 
 {% block content %}
   <h1>Dashboard</h1>
-  {% for insumo in insumos %}
-    <p>{{ insumo.nome }}</p>
-  {% endfor %}
+  <div class="buttons">
+    <a href="mostrar_insumo">
+        <button class="btn-login">Estoque de Insumos</button>
+    </a>
+    <a href="registrar_insumo">
+        <button class="btn-register">Registrar Insumos</button>
+    </a>
+    
+</div>
 {% endblock %}
