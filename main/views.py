@@ -36,7 +36,7 @@ def login(req):
                 email=form.cleaned_data["email"]
             ).first()
             if user and user.senha == form.cleaned_data["senha"]:
-                return redirect("index")  # ir para o painel do usuário
+                return redirect("dashboard")  # ir para o painel do usuário
             else:
                 form = LoginForm()
                 password_error = True
