@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+  Estoque de Insumos | Café Maestro
+{% endblock %}
+
+{% block content %}
+  <h1>Estoque de Insumos</h1>
+  <br>
+{% for insumo in insumos %}
+  <p>{{ insumo.nome }}</p>
+{% endfor %}
+  </div>
+{% endblock %}

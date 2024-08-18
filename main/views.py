@@ -63,3 +63,7 @@ def registrar_insumo(req):
     else:
         form = RegistrarInsumoForm()
     return render(req, "main/registrar_insumo.html", {"form": form})
+
+def mostrar_insumos(req):
+    insumos = models.Insumo.objects.all()[:10]
+    return render(req, "main/mostrar_insumos.html", {"insumos": insumos})
