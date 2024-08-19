@@ -107,6 +107,10 @@ h3{
     font-family: "Eczar";
 }
 
+.btn {
+    margin-top: 20px;
+}
+
 .buttons {
    
     display: flex;
