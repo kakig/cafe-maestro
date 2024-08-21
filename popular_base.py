@@ -19,20 +19,21 @@
 #         unidade_medida=insumo["unidade_medida"],
 #     ).save()
 
-# from random import randrange
-# from datetime import timedelta, datetime
-#
-# def random_date(start, end):
-#     """
-#     This function will return a random datetime between two datetime 
-#     objects.
-#     """
-#     delta = end - start
-#     int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
-#     random_second = randrange(int_delta)
-#     return start + timedelta(seconds=random_second)
-#
-#
+from random import randrange
+from datetime import timedelta, datetime
+
+
+def random_date(start, end):
+    """
+    This function will return a random datetime between two datetime
+    objects.
+    """
+    delta = end - start
+    int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
+    random_second = randrange(int_delta)
+    return start + timedelta(seconds=random_second)
+
+
 # from main.models import Plantacao
 # import random
 #
@@ -62,3 +63,24 @@
 #     ).save()
 
 
+from main.models import Plantacao, ProducaoEsperada
+import random
+
+plantacoes = Plantacao.objects.all()
+
+producoes = [
+    {
+        "plantacao": plantacao,
+        "quantidade_sacas": random.randint(3, 100),
+        "data_previsao": random_date(datetime(2022, 1, 1), datetime(2024, 1, 1)),
+    }
+    for plantacao in plantacoes
+]
+
+
+for producao in producoes:
+    ProducaoEsperada(
+        plantacao=producao["plantacao"],
+        quantidade_sacas=producao["quantidade_sacas"],
+        data_previsao=producao["data_previsao"],
+    ).save()

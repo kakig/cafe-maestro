@@ -5,6 +5,11 @@ from .forms import RegistrarUsuarioForm, RegistrarInsumoForm
 from .forms import LoginForm
 from . import models
 from .models import Plantacao, Insumo, ControleInsumo, ProducaoEsperada, ProducaoRealizada, Clima, Trabalhador, ControleTrabalho, Venda
+
+
+from plotly import express as ex
+import pandas as pd
+
 # Create your views here.
 
 
@@ -76,6 +81,10 @@ def dashboard(request):
     controles_trabalhos = ControleTrabalho.objects.all()
     vendas = Venda.objects.all()
 
+    df = pd.DataFrame([{"Plantação": p.plantacao.nome, "Quantidade de Sacas": p.quantidade_sacas, "Data Esperada": p.data_previsao} for p in producoes_esperadas])
+    fig = ex.bar(df, x="Data Esperada", y="Quantidade de Sacas")
+    grafico = fig.to_html(full_html=False)
+
     # Passando os dados para o template
     context = {
         'plantacoes': plantacoes,
@@ -87,5 +96,6 @@ def dashboard(request):
         'trabalhadores': trabalhadores,
         'controles_trabalhos': controles_trabalhos,
         'vendas': vendas,
+        'grafico': grafico,
     }
     return render(request, 'main/dashboard.html', context)
