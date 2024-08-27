@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .forms import RegistrarInsumoForm
-from .forms import RegistrarUsuarioForm
+from .forms import RegistrarUsuarioForm, RegistrarInsumoForm
 from .forms import LoginForm
 from . import models
+from .models import Plantacao, Insumo, ControleInsumo, ProducaoEsperada, ProducaoRealizada, Clima, Trabalhador, ControleTrabalho, Venda
+
+
+from plotly import express as ex
+import pandas as pd
 
 # Create your views here.
 
@@ -48,10 +52,10 @@ def login(req):
     )
 
 
-def dashboard(req):
+""" def dashboard(req):
     insumos = models.Insumo.objects.all()[:10]
     return render(req, "main/dashboard.html", {"insumos": insumos})
-
+ """
 
 def registrar_insumo(req):
     if req.method == "POST":
@@ -64,6 +68,33 @@ def registrar_insumo(req):
         form = RegistrarInsumoForm()
     return render(req, "main/registrar_insumo.html", {"form": form})
 
-def mostrar_insumos(req):
-    insumos = models.Insumo.objects.all()[:10]
-    return render(req, "main/mostrar_insumos.html", {"insumos": insumos})
+def dashboard(request):
+    # Consultando os dados de cada tabela
+    plantacoes = Plantacao.objects.all()
+    insumos = Insumo.objects.all()
+    controles_insumos = ControleInsumo.objects.all()
+    producoes_esperadas = ProducaoEsperada.objects.all()
+    producoes_realizadas = ProducaoRealizada.objects.all()
+    climas = Clima.objects.all()
+    trabalhadores = Trabalhador.objects.all()
+    controles_trabalhos = ControleTrabalho.objects.all()
+    vendas = Venda.objects.all()
+
+    df = pd.DataFrame([{"Plantação": p.plantacao.nome, "Quantidade de Sacas": p.quantidade_sacas, "Data Esperada": p.data_previsao} for p in producoes_esperadas])
+    fig = ex.bar(df, x="Data Esperada", y="Quantidade de Sacas")
+    grafico = fig.to_html(full_html=False)
+
+    # Passando os dados para o template
+    context = {
+        'plantacoes': plantacoes,
+        'insumos': insumos,
+        'controles_insumos': controles_insumos,
+        'producoes_esperadas': producoes_esperadas,
+        'producoes_realizadas': producoes_realizadas,
+        'climas': climas,
+        'trabalhadores': trabalhadores,
+        'controles_trabalhos': controles_trabalhos,
+        'vendas': vendas,
+        'grafico': grafico,
+    }
+    return render(request, 'main/dashboard.html', context)
