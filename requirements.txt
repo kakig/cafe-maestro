@@ -155,8 +155,6 @@ rpm==4.19.1.1
 rsa==4.9
 s3transfer==0.10.2
 SciPy==1.11.3
-selinux @ file:///builddir/build/BUILD/libselinux-3.6/src
-sepolicy @ file:///builddir/build/BUILD/selinux-3.6/python/sepolicy
 setools==4.5.1
 setuptools==69.0.3
 simpleaudio==1.0.4
