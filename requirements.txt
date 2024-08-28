@@ -2,3 +2,4 @@ Django==5.1
 dashboard==0.0.6
 plotly==5.23.0
 pandas==2.2.2
+selenium==4.23

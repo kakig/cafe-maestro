@@ -83,8 +83,12 @@ def dashboard(request):
     vendas = Venda.objects.all()
 
     df = pd.DataFrame([{"Plantação": p.plantacao.nome, "Quantidade de Sacas": p.quantidade_sacas, "Data Esperada": p.data_previsao} for p in producoes_esperadas])
-    fig = ex.bar(df, x="Data Esperada", y="Quantidade de Sacas")
-    grafico = fig.to_html(full_html=False)
+    grafico = None
+    try:
+        fig = ex.bar(df, x="Data Esperada", y="Quantidade de Sacas")
+        grafico = fig.to_html(full_html=False)
+    except:
+        pass
 
     # Passando os dados para o template
     context = {
