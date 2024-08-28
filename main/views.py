@@ -63,7 +63,9 @@ def registrar_insumo(req):
         if form.is_valid():
             user = models.Insumo(**form.cleaned_data)
             user.save()
-        return redirect("dashboard")
+            return redirect("dashboard")
+        else:
+            return render(req, "main/registrar_insumo.html", {"form": form})
     else:
         form = RegistrarInsumoForm()
     return render(req, "main/registrar_insumo.html", {"form": form})
