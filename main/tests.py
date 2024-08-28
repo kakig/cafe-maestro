@@ -49,7 +49,6 @@ class RegistrarInsumoTest(TestCase):
         }
         response = self.client.post(reverse("registrar_insumo"), data)
         self.assertEqual(response.status_code, 302)  # Verifica redirecionamento
-        #self.assertRedirects(response, reverse("dashboard"))
         self.assertTrue(Insumo.objects.filter(nome="Insumo Teste").exists())
         
     def test_registrar_insumo_post_invalid(self):
